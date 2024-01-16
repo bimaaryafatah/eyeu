@@ -1,0 +1,10 @@
+providers = ["node", "python"]
+
+[phases.setup]
+aptPkgs = ['default-libmysqlclient-dev', 'build-essential', 'pkg-config']
+
+[phases.build]
+cmds = ["npm run build", "pip install -r requirements.txt"]
+
+[start]
+cmd = "gunicorn app:app"
